@@ -34,7 +34,7 @@ deploy_install:
     # - apt-get update && apt-get install -y openssh-client
     - mkdir -p ~/.ssh && echo -e "${SSH_IMO_HOST//_/\\n}" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa
     - echo -e "${SSH_KNOWN_HOSTS}" > ~/.ssh/known_hosts
-#    - ssh -l $SSH_USER $SSH_HOST "sudo systemctl stop moburb"
+    - ssh -l $SSH_USER $SSH_HOST "sudo systemctl stop moburb"
     - ssh -l $SSH_USER $SSH_HOST "mkdir -p ~/projects/go/moburb"
     - scp -rp moburb $SSH_USER@$SSH_HOST:~/projects/go/moburb/
-#    - ssh -l $SSH_USER $SSH_HOST "sudo systemctl start moburb"
+    - ssh -l $SSH_USER $SSH_HOST "sudo systemctl start moburb"
